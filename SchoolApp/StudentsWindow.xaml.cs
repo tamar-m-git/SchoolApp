@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SchoolApp.BL;
+using SchoolApp.DAL;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,6 +14,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SchoolApp.BL;
+using SchoolApp.DAL; 
+using System.Collections.ObjectModel;
 
 namespace SchoolApp
 {
@@ -20,12 +25,23 @@ namespace SchoolApp
     /// </summary>
     public partial class StudentsWindow : Window
     {
+        public ObservableCollection<Students> Students { get; set; }
         public StudentsWindow()
         {
-            DataContext = this;
-            //bl = new bl;
-            //Students = bl.GetStudents();
             InitializeComponent();
+            Students = new ObservableCollection<Students>(StudentManager.GetAllStudents());
+            
+            DataContext = this;
+            SList.ItemsSource = Students;
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+            
+
+
         }
         //public List<Students> Students { get; set; }
     }

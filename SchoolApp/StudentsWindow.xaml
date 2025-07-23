@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolApp"
         mc:Ignorable="d"
-        Title="Students" Height="450" Width="800">
+        Title="Students" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
@@ -29,7 +29,7 @@
                 <ComboBox Margin="20" FontSize="20" Width="100" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></ComboBox>
             </WrapPanel>
         </Grid>
-        <DataGrid Grid.Row="2" Grid.Column="1"  ItemsSource="{Binding Students}">
+        <DataGrid Name="SList" Grid.Row="2" Grid.Column="1"  ItemsSource="{Binding Students}">
 
     </DataGrid>
     </Grid>
